@@ -33,16 +33,8 @@
         .chicken-logo {
             cursor: pointer;
         }
-        .chicken-logo:active {
-            animation: bounce 0.5s ease;
-        }
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            30% { transform: translateY(-10px); }
-            50% { transform: translateY(0); }
-            70% { transform: translateY(-5px); }
-            100% { transform: translateY(0); }
-        }
+        /* Removed bounce effect on click */
+        
         h1 {
             font-size: 36px;
             font-weight: bold;
@@ -99,6 +91,7 @@
             max-width: 500px;
             border-radius: 5px;
             margin-bottom: 10px;
+            pointer-events: none; /* Prevents clicks */
         }
         footer {
             margin-top: 40px;
