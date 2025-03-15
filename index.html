@@ -28,7 +28,20 @@
             transition: transform 0.3s ease;
         }
         img:hover {
-            transform: scale(1.1);
+            transform: rotate(10deg) scale(1.1);
+        }
+        .chicken-logo {
+            cursor: pointer;
+        }
+        .chicken-logo:active {
+            animation: bounce 0.5s ease;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+            50% { transform: translateY(0); }
+            70% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
         }
         h1 {
             font-size: 36px;
@@ -96,7 +109,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="/chicken-logo.png" alt="Chicken Logo">
+        <img src="/chicken-logo.png" alt="Chicken Logo" class="chicken-logo">
         <h1>Zac Simmonds</h1>
         <p>Mechatronics Engineer</p>
         
@@ -109,6 +122,7 @@
 
     <div class="section" id="projects">
         <h2>Projects</h2>
+        <p>Much of my work is in the security industry, where confidentiality is a key factor. Many of my designs are protected by NDAs, and some are currently going through the patent process, meaning I can't showcase everything I'd like to.</p>
         <div class="project">
             <img src="/project1.png" alt="Project 1">
             <h3>Project 1</h3>
@@ -136,7 +150,6 @@
     </footer>
 
     <script>
-        // Smooth scrolling
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -145,8 +158,6 @@
                 });
             });
         });
-        
-        // Fade-in effect for sections
         function revealSections() {
             document.querySelectorAll('.section').forEach(section => {
                 const rect = section.getBoundingClientRect();
@@ -158,8 +169,6 @@
         }
         window.addEventListener('scroll', revealSections);
         revealSections();
-        
-        // Dynamic year update
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
