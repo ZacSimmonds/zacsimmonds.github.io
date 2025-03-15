@@ -6,7 +6,7 @@
     <title>Zac Simmonds - Portfolio</title>
     <style>
         body {
-            background-color: black;
+            background: linear-gradient(to bottom, #000, #111);
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -25,6 +25,10 @@
             width: 150px;
             height: auto;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.1);
         }
         h1 {
             font-size: 36px;
@@ -33,6 +37,8 @@
         p {
             font-size: 18px;
             opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
         }
         nav {
             margin-top: 20px;
@@ -42,19 +48,33 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: gray;
+            transform: scale(1.1);
         }
         .section {
-            margin-top: 40px;
-            max-width: 600px;
-            text-align: left;
+            margin: 60px auto;
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
         }
         .section h2 {
             font-size: 24px;
             border-bottom: 1px solid gray;
             padding-bottom: 5px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -78,12 +98,44 @@
 
     <div class="section" id="about">
         <h2>About Me</h2>
-        <p>I'm a mechanical engineer with a strong focus on designing manufacturable, high-volume products. I specialize in mechanical systems, PCB design, and embedded firmware, bringing concepts from early design through to real-world deployment. My work has been primarily in the security industry, with products in the field worldwide. </p>
+        <p>I'm a mechanical engineer with a strong focus on designing manufacturable, high-volume products. I specialize in mechanical systems, PCB design, and embedded firmware, bringing concepts from early design through to real-world deployment. My work has been primarily in the security industry, with products in the field worldwide.</p>
     </div>
 
     <div class="section" id="contact">
         <h2>Contact</h2>
         <p>Email: zac.s@me.com</p>
     </div>
+    
+    <footer>
+        &copy; <span id="year"></span> Zac Simmonds. All rights reserved.
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Fade-in effect for sections
+        function revealSections() {
+            document.querySelectorAll('.section').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    section.style.opacity = 1;
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', revealSections);
+        revealSections();
+        
+        // Dynamic year update
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
