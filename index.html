@@ -6,7 +6,7 @@
     <title>Zac Simmonds - Portfolio</title>
     <style>
         body {
-            background-color: black;
+            background: linear-gradient(to bottom, #000, #111);
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -25,7 +25,16 @@
             width: 150px;
             height: auto;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
         }
+        img:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .chicken-logo {
+            cursor: pointer;
+        }
+        /* Removed bounce effect on click */
+        
         h1 {
             font-size: 36px;
             font-weight: bold;
@@ -33,6 +42,8 @@
         p {
             font-size: 18px;
             opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
         }
         nav {
             margin-top: 20px;
@@ -42,27 +53,58 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: gray;
+            transform: scale(1.1);
         }
         .section {
-            margin-top: 40px;
-            max-width: 600px;
-            text-align: left;
+            margin: 60px auto;
+            max-width: 800px;
+            text-align: justify;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
         }
         .section h2 {
             font-size: 24px;
             border-bottom: 1px solid gray;
             padding-bottom: 5px;
         }
+        .project {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: justify;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .project img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            pointer-events: none; /* Prevents clicks */
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="/chicken-logo.png" alt="Chicken Logo">
+        <img src="/chicken-logo.png" alt="Chicken Logo" class="chicken-logo">
         <h1>Zac Simmonds</h1>
-        <p>Electronics & Mechanical Engineer | Software Developer</p>
+        <p>Mechatronics Engineer</p>
         
         <nav>
             <a href="#projects">Projects</a>
@@ -73,17 +115,54 @@
 
     <div class="section" id="projects">
         <h2>Projects</h2>
-        <p>Coming soon...</p>
+        <p>Much of my work is in the security industry, where confidentiality is a key factor. Many of my designs are protected by NDAs, and some are currently going through the patent process, meaning I can't showcase everything I'd like to.</p>
+        <div class="project">
+            <img src="/project1.png" alt="Project 1">
+            <h3>Project 1</h3>
+            <p>A brief description of what this project is about.</p>
+        </div>
+        <div class="project">
+            <img src="/project2.png" alt="Project 2">
+            <h3>Project 2</h3>
+            <p>A brief description of what this project is about.</p>
+        </div>
     </div>
 
     <div class="section" id="about">
         <h2>About Me</h2>
-        <p>Engineering solutions for real-world problems.</p>
+        <p>I'm a mechanical engineer with a strong focus on designing manufacturable, high-volume products. I specialize in mechanical systems, PCB design, and embedded firmware, bringing concepts from early design through to real-world deployment. My work has been primarily in the security industry, with products in the field worldwide.</p>
     </div>
 
     <div class="section" id="contact">
         <h2>Contact</h2>
-        <p>Email: zac@example.com</p>
+        <p><a href="https://www.linkedin.com/in/zacsimmonds" target="_blank" style="color: white; text-decoration: none; font-size: 18px;">Connect with me on LinkedIn</a></p>
     </div>
+    
+    <footer>
+        &copy; <span id="year"></span> Zac Simmonds. All rights reserved.
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        function revealSections() {
+            document.querySelectorAll('.section').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    section.style.opacity = 1;
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', revealSections);
+        revealSections();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
