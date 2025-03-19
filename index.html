@@ -42,7 +42,7 @@
         p {
             font-size: 18px;
             opacity: 0.8;
-            max-width: 600px;
+            text-align: left;
             margin: 0 auto;
         }
         nav {
@@ -60,9 +60,9 @@
             transform: scale(1.1);
         }
         .section {
-            margin: 60px auto;
+            margin: 10px auto;
             max-width: 800px;
-            text-align: justify;
+            text-align: left;
             padding: 20px;
             opacity: 0;
             transform: translateY(20px);
@@ -82,17 +82,20 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             text-align: justify;
-            max-width: 600px;
+        
             margin-left: auto;
             margin-right: auto;
         }
-        .project img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            pointer-events: none; /* Prevents clicks */
-        }
+		.project img {
+    width: 100%;  /* Makes images take full width of their container */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    pointer-events: none; /* Prevents clicks */
+    display: block; /* Prevents extra space below images */
+}
+
+
         footer {
             margin-top: 40px;
             font-size: 14px;
@@ -102,42 +105,177 @@
 </head>
 <body>
     <div class="container">
-        <img src="/chicken-logo.png" alt="Chicken Logo" class="chicken-logo">
+        <img src="chicken-logo.png" alt="Chicken Logo" class="chicken-logo">
         <h1>Zac Simmonds</h1>
-        <p>Mechatronics Engineer</p>
+        <p>Mechatronics Engineer - (Not Looking For Work)</p>
         
         <nav>
+		            <a href="#about">About</a>
             <a href="#projects">Projects</a>
-            <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </nav>
-    </div>
-
-    <div class="section" id="projects">
-        <h2>Projects</h2>
-        <p>Much of my work is in the security industry, where confidentiality is a key factor. Many of my designs are protected by NDAs, and some are currently going through the patent process, meaning I can't showcase everything I'd like to.</p>
-        <div class="project">
-            <img src="/project1.png" alt="Project 1">
-            <h3>Project 1</h3>
-            <p>A brief description of what this project is about.</p>
-        </div>
-        <div class="project">
-            <img src="/project2.png" alt="Project 2">
-            <h3>Project 2</h3>
-            <p>A brief description of what this project is about.</p>
-        </div>
-    </div>
-
+    </div>	
     <div class="section" id="about">
         <h2>About Me</h2>
         <p>I'm a mechanical engineer with a strong focus on designing manufacturable, high-volume products. I specialize in mechanical systems, PCB design, and embedded firmware, bringing concepts from early design through to real-world deployment. My work has been primarily in the security industry, with products in the field worldwide.</p>
     </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="section" id="projects">
+    <h2>Projects</h2>
+<br>
+    <div class="project">
+	       <h3>Intelligent Drive Unit for Locking System</h3>
+        <img src="1.jpg" alt="Intelligent Drive Unit">
+ 
+        <p>
+            I designed the PCB and firmware for an advanced locking system.  
+            It used various sensors, including Hall effect sensors and detector switches,  
+            to control a geared motor, ensuring precise locking position control and secure status feedback.  
+        </p>
+		<br>
+        <p>
+            The unit provided logic-level feedback and a photo relay output,  
+            making it compatible with third-party systems.  
+            It could receive commands via high/low signals or serial communication.  
+        </p>
+		<br>
+        <p>
+            While the PCB was housed in a larger enclosure,  
+            my focus was on electronics and firmware.  
+            I also developed a system for in-field reprogramming using one-wire UPDI  
+            and a USB-C flashing tool, allowing users to update firmware easily.  
+        </p>
+		<br>
+        <p>
+            This system has been deployed in industries like vending machines  
+            and DNA sampling kiosks, proving its adaptability and reliability.  
+        </p>
+		<br>
+		 <img src="11.gif">
+    </div>
+<br>
+<br>
+ <div class="project">
 
+    <img src="3.jpg" alt="Patented Motorised Rotary Latch">
+  
+    <p>
+        I played a key role in this project, leading the mechanical design, prototyping, testing,<br> 
+        DFM, and full-scale production of all components.  
+    </p>
+    <br>
+    <p>
+        This included plastic injection moulded parts, sheet metal, die-cast, and turned components,<br> 
+        ensuring a highly durable and manufacturable solution.  
+    </p>
+    <br>
+    <p>
+        Alongside the mechanical work, I also designed the PCB and firmware,<br> 
+        ensuring seamless integration with the system.  
+    </p>
+    <br>
+    <p>
+        With custom firmware, auto-relock, and soft closure features,<br> 
+        this latch sets a new standard for secure, durable, and adaptable locking solutions.  
+    </p>
+	<br>
+	<img src="2.gif" alt="Patented Motorised Rotary Latch">
+</div>
+<br>
+<br>
+
+<div class="project">
+<h3>Wireless & BLE Control Node</h3>
+    <img src="2.jpg" alt="Wireless & BLE Control Node">  
+    <p>
+        This wireless and BLE-enabled control node provides secure, remote access control<br> 
+        without the need for hardwiring. It can operate as a standalone controller<br> 
+        or as part of a mesh system, relaying control and feedback messages securely.  
+    </p>
+    <br>
+    <p>
+        Designed for low-power operation, it can run on an internal battery<br> 
+        and supports Wi-Fi, Bluetooth, and encrypted communication.  
+    </p>
+<br>	
+</div>
+<br>
+<br>
+<div class="project">
+    <h3>USB & Network Control Demonstration Tool</h3>
+    <img src="5.jpg" alt="USB & Network Control Demonstration Tool">
+    
+    <p>
+        I developed a standalone desktop application to provide a user-friendly interface<br> 
+        for demonstrating and testing a USB and network-controlled device.<br> 
+        Previously, demonstrations were done manually through serial commands in Tera Term,<br> 
+        which was inefficient and difficult for non-technical users.<br>  
+    </p>
+    <br>
+    <p>
+        This tool was designed to streamline the process, making it easy for customers testing samples<br> 
+        and sales teams showcasing the product.  
+    </p>
+    <br>
+    <h4>Key Features</h4>
+    <p>
+        - <b>Graphical Interface:</b> Built using Tkinter and CustomTkinter for a clean, dark-themed UI.<br> 
+        - <b>Serial Communication:</b> Automatically detects and connects to the correct USB device.<br> 
+        - <b>Real-Time Logging:</b> Displays sent commands and received responses in a live feed.<br> 
+        - <b>Toggle Controls:</b> Provides easy ON/OFF buttons for controlling device outputs.<br> 
+        - <b>Dropdown Commands:</b> Allows quick selection of functions like lock/unlock, relock settings,<br> 
+          temperature monitoring, and relay control.<br> 
+        - <b>Multi-Device Support:</b> Can communicate with multiple locks over a network or USB,<br> 
+          enabling bulk control of devices.<br> 
+        - <b>Scalability:</b> Designed for future expansion, allowing additional devices and features<br> 
+          to be added without requiring major rewrites.<br> 
+    </p>
+    <br>
+    <h4>Development & Deployment</h4>
+    <p>
+        - Fully compiled as an EXE for easy distribution to customers and sales teams.<br> 
+        - Trained internal teams to use the tool effectively.<br> 
+        - Significantly reduced onboarding time for customers testing the product.<br> 
+    </p>
+    <br>
+    <p>
+        This application transformed the way the product was demonstrated,<br> 
+        making it more professional, efficient, and accessible.
+    </p>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <div class="section" id="contact">
         <h2>Contact</h2>
         <p><a href="https://www.linkedin.com/in/zacsimmonds" target="_blank" style="color: white; text-decoration: none; font-size: 18px;">Connect with me on LinkedIn</a></p>
     </div>
-    
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <footer>
         &copy; <span id="year"></span> Zac Simmonds. All rights reserved.
     </footer>
